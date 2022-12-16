@@ -1,6 +1,9 @@
+metadata:
+  name: spring-boot-hello-prod
+  namespace: openshift-gitops
 spec:
   destination:
     server: https://kubernetes.default.svc
   source:
-    repoURL: http://git-gogs-unsafe-gogs.apps-crc.testing/gogs-admin/spring-boot-hello-prod-config
+    repoURL: https://github.com/raycon300/app-service-gitops-prod
     targetRevision: HEAD

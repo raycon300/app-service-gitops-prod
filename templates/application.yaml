@@ -1,15 +1,15 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: spring-boot-hello-prod
-  namespace: openshift-gitops
+  name: {{ .Values.metadata.name }}
+  namespace: {{ .Values.metadata.namespace }}
 spec:
   project: default
   syncPolicy:
     automated: {}
   destination:
     server: {{ .Values.spec.destination.server }}
-    namespace: spring-boot-prod
+    namespace: {{ .Values.spec.destination.namespace }}
   source:
-    path: spring-boot-hello
+    path: oc-manifests
     repoURL: {{ .Values.spec.source.repoURL }}
